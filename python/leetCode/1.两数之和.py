@@ -8,25 +8,22 @@
 #
 # 因为 nums[0] + nums[1] = 2 + 7 = 9
 # 所以返回 [0, 1]
-#
-# 来源：力扣（LeetCode）
-# 链接：https://leetcode-cn.com/problems/two-sum
-# 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 from typing import List
+
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        hashmap={}
-        for ind,val in enumerate(nums):
-            hashmap[val]=ind
-        for ind,val in enumerate(nums):
-            item=hashmap.get(target-val)
-            if item is not None and  item!=ind:
-                return [ind,item]
+        hashmap = {}
+        for ind, val in enumerate(nums):
+            hashmap[val] = ind
+        for ind, val in enumerate(nums):
+            item = hashmap.get(target - val)
+            if item is not None and item != ind:
+                return [ind, item]
 
-    def twoSum2(self,nums:List[int],target:int)->List[int]:
-        hashmap={}
-        for ind,val in enumerate(nums):
-            if hashmap.get(target-val) is not None:
-                return [ind, hashmap.get(target-val)]
-            hashmap[val,ind]
+    def twoSum2(self, nums: List[int], target: int) -> List[int]:
+        hashmap = {}
+        for ind, val in enumerate(nums):
+            if hashmap.get(target - val) is not None:
+                return [ind, hashmap.get(target - val)]
+            hashmap[val, ind]
